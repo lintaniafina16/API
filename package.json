@@ -1,0 +1,16 @@
+{
+  "name": "Cypress2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "lintaniafina",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^13.1.0",
+    "prettier": "^3.0.3"
+  },
+
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
+  }
+}
