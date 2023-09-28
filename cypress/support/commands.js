@@ -37,3 +37,20 @@ Cypress.Commands.add('login', (username, password) => {
   
 
 })
+
+Cypress.Commands.add('loginViaAPI', (
+    email = Cypress.env('userEmail'),
+    password = Cypress.env('userPassword'),
+    url = Cypress.env('apiUrl')
+  ) => {
+    cy.request('POST', `${url}/users/login`, {
+      username: email,
+      password,
+    }).then((response) => {
+      cy.setCookie('sessionId', response.body.sessionId)
+      cy.setCookie('userId', response.body.userId)
+      //cy.setCookie('userName', response.body.userName)
+      cy.visit(`${url}/#!/main`)
+    })
+ })
+ 
